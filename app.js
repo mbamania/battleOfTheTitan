@@ -7,14 +7,14 @@ const abi = [
 ];
 
 // Address of your smart contract
-const contractAddress = 'YOUR_CONTRACT_ADDRESS';
+const contractAddress = '0x6D3FfC14bb34aa9Dc88045a3Daf3D621Bd2dd3A6';
 
 // Create an instance of your smart contract
 const contract = new web3.eth.Contract(abi, contractAddress);
 
 // Function to get the balance from your smart contract
 async function getBalance() {
-    const account = 'YOUR_ACCOUNT_ADDRESS'; // Update with your Ethereum account address
+    const account = '0xdEA8e90B07567CF462C5aCa25D053688E24777A2'; // Update with your Ethereum account address
     const balance = await contract.methods.getBalance(account).call();
     document.getElementById('balance').innerText = `Balance: ${balance}`;
 }
