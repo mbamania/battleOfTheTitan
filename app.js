@@ -29,3 +29,26 @@ async function connect() {
         console.error('Error:', error);
     }
 }
+
+async function connect() {
+    if (window.ethereum) {
+    // Check if MetaMask is installed
+    const ethereum = window.ethereum;
+
+    // Check if MetaMask is connected
+    if (ethereum.isConnected()) {
+        // Disconnect MetaMask
+        ethereum.disconnect()
+            .then(() => {
+                console.log('Disconnected from MetaMask');
+            })
+            .catch((error) => {
+                console.error('Error disconnecting from MetaMask:', error);
+            });
+    } else {
+        console.log('MetaMask is not connected');
+    }
+} else {
+    console.log('MetaMask is not installed');
+}
+}
