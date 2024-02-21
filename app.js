@@ -30,6 +30,3 @@ async function connect() {
     }
 }
 
-async function disconnect() {
-    window.web3.eth.currentProvider.disconnect();
-}
