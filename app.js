@@ -31,23 +31,17 @@ async function connect() {
 }
 
 async function disconnect() {
-    if (window.ethereum) {
-    // Check if MetaMask is installed
+if (window.ethereum) {
     const ethereum = window.ethereum;
 
-    // Check if MetaMask is connected
-    if (ethereum.isConnected()) {
-        // Disconnect MetaMask
-        ethereum.disconnect()
-            .then(() => {
-                console.log('Disconnected from MetaMask');
-            })
-            .catch((error) => {
-                console.error('Error disconnecting from MetaMask:', error);
-            });
-    } else {
-        console.log('MetaMask is not connected');
-    }
+    ethereum.request({ method: 'wallet_requestPermissions', params: [{ eth_accounts: {} }] })
+        .then((accounts) => {
+            // If the user grants permission, MetaMask will prompt to disconnect
+            console.log('MetaMask will prompt to disconnect');
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 } else {
     console.log('MetaMask is not installed');
 }
