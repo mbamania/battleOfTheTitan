@@ -30,7 +30,7 @@ async function connect() {
     }
 }
 
-async function connect() {
+async function disconnect() {
     if (window.ethereum) {
     // Check if MetaMask is installed
     const ethereum = window.ethereum;
